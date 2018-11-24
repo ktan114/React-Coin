@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import "./Table.css";
 import { handleResponse } from "../../helpers";
 import { API_URL } from "../../config";
+import Loading from "../Loading/Loading";
 class List extends Component {
   constructor() {
     super();
@@ -34,8 +35,19 @@ class List extends Component {
   };
 
   render() {
-    if (this.state.loading) {
-      return <div>Loading...</div>;
+    const { loading, error, currencies } = this.state;
+    // Render occurs only when loading component, if loading state is set to true
+    if (loading) {
+      return (
+        <div className="Loading__Container">
+          <Loading />
+        </div>
+      );
+    }
+
+    // Render only error message, if error occured while fetching data
+    if (error) {
+      return <div className="Error">{error}</div>;
     }
     return (
       <div className="Table__Container">
@@ -49,21 +61,21 @@ class List extends Component {
             </tr>
           </thead>
           <tbody className="Table__Body">
-            {this.state.currencies.map(currency => (
+            {currencies.map(currency => (
               <tr key={currency.id}>
                 <td>
                   <span className="Table__Rank">{currency.rank}</span>
                   {currency.name}
                 </td>
                 <td>
-                  <span className="Table__Dollar">$ {currency.price}</span>
+                  <span className="Table__Dollar">$ </span>
+                  {currency.price}
                 </td>
                 <td>
-                  <span className="Table__Dollar">$ {currency.marketCap}</span>
+                  <span className="Table__Dollar">$ </span>
+                  {currency.marketCap}
                 </td>
-                <td>
-                  {this.renderChangePercent(currency.percentChange24h)}
-                </td>
+                <td>{this.renderChangePercent(currency.percentChange24h)}</td>
               </tr>
             ))}
           </tbody>
