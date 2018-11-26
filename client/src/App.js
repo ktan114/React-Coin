@@ -10,7 +10,9 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <List />
+        <Switch>
+          <Route exact path="/" component={List} />
+        </Switch>
       </div>
     );
   }
