@@ -5,6 +5,7 @@ import "./App.css";
 import Header from "./components/Header/Header";
 import List from "./components/List/List";
 import NotFound from "./components/NotFound/NotFound";
+import Detail from "./components/Detail/Detail";
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
         <Header />
         <Switch>
           <Route exact path="/" component={List} />
+          <Route path="/currency/:id" component={Detail} />
           <Route component={NotFound} />
         </Switch>
       </div>
