@@ -1,4 +1,10 @@
 # React-Coin
+This application fetches live cryptocurrency stocks information from the following API: https://udilia.com/docs/cryptocurrencies/v1 and displays it in a user-friendly interface
+
+## Deployed
+- Heroku: https://ktan-coin.herokuapp.com/ 
+- Now: https://build-gq86oiph9.now.sh/
+- AWS: http://ktan-coin.s3-website.us-east-2.amazonaws.com/ 
 
 ## Topics
 - React Lifecycle Hooks
@@ -20,8 +26,3 @@
 "react-scripts": "2.1.1",
 "serve": "^10.1.1"
 ```
-
-## Deployed
-- Heroku: https://ktan-coin.herokuapp.com/ 
-- Now: https://build-gq86oiph9.now.sh/
-- AWS: http://ktan-coin.s3-website.us-east-2.amazonaws.com/ 
