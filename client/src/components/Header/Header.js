@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import "./Header.css";
 import logo from "./logo.png";
@@ -10,7 +11,9 @@ const containerStyle = {
 const Header = () => {
   return (
     <div style={containerStyle} className="Header">
-      <img src={logo} alt="logo" className="Header__Logo"/>
+      <Link to="/">
+        <img src={logo} alt="logo" className="Header__Logo" />
+      </Link>
       Header
     </div>
   );
